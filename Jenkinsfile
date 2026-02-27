@@ -17,5 +17,15 @@ pipeline {
                 '''
             }
         }
+        stage('Test') {
+            steps {
+                sh '''
+                    Test stage
+                    export HOME=$WORKSPACE
+                    ls -al .next
+                    npm run test
+                '''
+            }
+        }
     }
 }
