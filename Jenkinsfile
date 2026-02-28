@@ -30,7 +30,7 @@ pipeline {
     post {
         always {
             // Publiceer JUnit test resultaten
-            publishTestResults testResultsPattern: 'test-results/junit.xml'
+            junit testResultsPattern: 'test-results/junit.xml'
         }
     }
 }
