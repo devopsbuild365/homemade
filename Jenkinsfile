@@ -21,9 +21,14 @@ pipeline {
             steps {
                 sh '''
                     export HOME=$WORKSPACE
-                    test .next
                     npm run test
                 '''
+            }
+            post {
+                always {
+                    // Publiceer JUnit test resultaten
+                    publishTestResults testResultsPattern: 'test-results/junit.xml'
+                }
             }
         }
     }
