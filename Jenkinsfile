@@ -23,13 +23,14 @@ pipeline {
                     export HOME=$WORKSPACE
                     npm run test
                 '''
-            }
-            post {
-                always {
-                    // Publiceer JUnit test resultaten
-                    publishTestResults testResultsPattern: 'test-results/junit.xml'
-                }
-            }
+            }            
+        }
+    }
+
+    post {
+        always {
+            // Publiceer JUnit test resultaten
+            publishTestResults testResultsPattern: 'test-results/junit.xml'
         }
     }
 }
